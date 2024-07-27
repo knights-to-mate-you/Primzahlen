@@ -15,6 +15,7 @@
 #include <cstdlib>
 #include <cmath>
 #include <stdbool.h>
+#include "Primzahlen.h"
 
 int main()
 {
@@ -24,6 +25,7 @@ int main()
     int Teilersuchzahl = 2;      // Numerische Variable für die Teilersuche
     int Anzahl = 0;              // Numerische Variable für das Zählen aller gefundenen Primzahlen
     int Primzahlindikator = 0;   // Numerische Variable für Primzahlindikator
+    float Verhaeltnis= 0.00000;  // Dezimalvariable für das Verhältnis von Zahl zu Anzahl der Primzahlen
 
     std::cout << "                       ******** Primzahlenprogramm ******** \n\n";
     std::cout << "                       (1) - Welche Zahl soll auf Prim geprueft werden ?\n";
@@ -76,11 +78,14 @@ int main()
             if (Primzahlindikator == 1)
             {
                 Anzahl++;
-                std::cout << "                                                    " << i << "\n";
+                std::cout << "                                                    " << i << " --> Anzahl:  " << Anzahl <<"\n";
             }   
         }
         std::cout << std::endl;
-        std::cout << "                    Es gibt also " << Anzahl << " Primzahlen im Zahlenbereich von 1 bis " << Zahl << ".\n";
+        std::cout << "                         Es gibt also " << Anzahl << " Primzahlen im Zahlenbereich von 2 bis " << Zahl << ".\n";
+        std::cout << std::endl;
+        float Verhaeltnis = (float) Zahl / Anzahl;
+        std::cout << "                         " << "Ein "<< Verhaeltnis <<".tel der Zahlen von 2 bis " << Zahl << " sind also Primzahlen. " << "\n";
     }
 }
 
