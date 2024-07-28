@@ -1,7 +1,7 @@
 // Primzahlen.cpp.
-// Autor: knights-to-mate-you 😀
+// Copyright 2024, Autor: knights-to-mate-you 😀, knights_to_mate_you@gmx.net
 // Erstmalige Bearbeitung: 27.07.2024
-// 
+// Letzmalige Bearbeitung: 28.07.2024
 // Das Programm lässt den Anwender auswählen wie er Primzahlen präsentiert haben möchte:
 // (1) - Welche Zahl soll auf Prim geprüft werden?
 // (2) - Bis zu welcher Zahl sollen Primzahlen angezeigt werden?
