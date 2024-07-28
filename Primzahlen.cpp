@@ -124,6 +124,8 @@ int main()
         Auswahl(Auswahloption);  // Funktionsaufruf: Prüfen der Anwendereingabe auf Korrektheit.
     }
     return 0;
+
+    // Last Edit: Sunday, 28th July 2024, 6.10 am GMT+1
 }
 
 
