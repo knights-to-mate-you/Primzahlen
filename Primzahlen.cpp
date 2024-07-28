@@ -20,20 +20,12 @@
 
 
  // Variablendefinitionen:
-int Auswahloption = 0;       // Numerische Variable für die Anwenderauswahl
 int Zahl = 0;                // Numerische Variable für die zu prüfende Zahl des Anwenders
 int Teilersuchzahl = 2;      // Numerische Variable für die Teilersuche
 int Anzahl = 0;              // Numerische Variable für das Zählen aller gefundenen Primzahlen
 int Primzahlindikator = 0;   // Numerische Variable für Primzahlindikator
 float Verhaeltnis = 0.00000; // Dezimalvariable für das Verhältnis von Zahl zu Anzahl der Primzahlen
 
-static void Auswahl()
-{
-        std::cout << "                       (1) - Welche Zahl soll auf Prim geprueft werden ?\n";
-        std::cout << "                       (2) - Bis zu welcher Zahl sollen Primzahlen angezeigt werden ?\n\n";
-        std::cout << "                       (3) - Anzahl der Primzahlen in bestimmten Intervallen \n\n";
-        std::cout << "                       Auswahl: "; std::cin >> Auswahloption; std::cout << "\n\n\n";
-}
 
 static void Pruefe_Zahl(int Zahl)
 {
@@ -79,7 +71,7 @@ static void Anwendergrenze(int Zahl)
         }
     }
     std::cout << std::endl;
-    std::cout << "                         Es gibt also " << Anzahl << " Primzahlen im Zahlenbereich von 2 bis " << Zahl << ".\n";
+    std::cout << "                         Es gibt somit " << Anzahl << " Primzahlen im Zahlenbereich von 2 bis " << Zahl << ".\n";
     std::cout << std::endl;
     float Verhaeltnis = (float)Zahl / Anzahl;
     std::cout << "                         " << "Ein " << Verhaeltnis << ".tel der Zahlen von 2 bis " << Zahl << " sind also Primzahlen. " << "\n";
@@ -90,16 +82,13 @@ static void Intervall(int Zahl)
     std::cout << "                       Hier kommt der Intervall-Teil rein - in Bearbeitung ... \n\n";
 }
 
-int main()
+static void Auswahl()
 {
-    std::cout << "                       ******** Primzahlenprogramm ******** \n\n";
-    std::cout << "                       Primzahlen sind Zahlen, die nur durch Eins und sich selbst geteilt werden koennen.\n";
-    std::cout << "                       Eins ist per Definition keine Primzahl. \n\n";
-    std::cout << "                       ************************************ \n\n";
-    std::cout << "                       \n\n\n";
-       
-   
-        Auswahl();  // Funktionsaufruf: Prüfen der Anwendereingabe auf Korrektheit.
+        int Auswahloption = 0;       // Numerische Variable für die Anwenderauswahl
+        std::cout << "                       (1) - Welche Zahl soll auf Prim geprueft werden ?\n";
+        std::cout << "                       (2) - Bis zu welcher Zahl sollen Primzahlen angezeigt werden ?\n\n";
+        std::cout << "                       (3) - Anzahl der Primzahlen in bestimmten Intervallen \n\n";
+        std::cout << "                       Auswahl: "; std::cin >> Auswahloption; std::cout << "\n\n\n";
         switch (Auswahloption)
         {
         case 1:
@@ -111,12 +100,23 @@ int main()
         case 3:
             Intervall(Zahl); // Funktionsaufruf: Berechnung der Anzahl von Primzahlen in einem bestimmten Intervall.
             break;
-        default:
+        default:            // ist gleichzeitig die Prüfung auf Korrektheit der Anwendereingabe
             std::cout << "              Sie haben " << Auswahloption << " angegeben. \n";
             std::cout << "              Die Auswahl muss jedoch ausschliesslich 1, 2 oder 3 sein! \n\n";
             Auswahl();  // Funktionsaufruf: Anwendereingabe (Auswahl)
             break;
         }
+}
+int main()
+{
+    std::cout << "                       ******** Primzahlenprogramm ******** \n\n";
+    std::cout << "                       Primzahlen sind Zahlen, die nur durch Eins und sich selbst geteilt werden koennen.\n";
+    std::cout << "                       Eins ist per Definition keine Primzahl. \n\n";
+    std::cout << "                       ************************************ \n\n";
+    std::cout << "                       \n\n\n";
+       
+   
+        Auswahl();  // Funktionsaufruf: Auswahl
    
     
     // return 0;
