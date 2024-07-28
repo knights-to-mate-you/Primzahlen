@@ -106,7 +106,7 @@ int main()
     std::cout << "                       (3) - Anzahl der Primzahlen in bestimmten Intervallen \n\n";
     std::cout << "                       Auswahl: "; std::cin >> Auswahloption; std::cout << "\n\n\n";
 
-   // Auswahl(Auswahloption);  // Funktionsaufruf: Prüfen der Anwendereingabe auf Korrektheit.
+    Auswahl(Auswahloption);  // Funktionsaufruf: Prüfen der Anwendereingabe auf Korrektheit.
     
     switch (Auswahloption)
     {
@@ -120,11 +120,10 @@ int main()
         Intervall(Zahl); // Funktionsaufruf: Berechnung der Anzahl von Primzahlen in einem bestimmten Intervall.
         break;
     default:
-        std::cout << "              Sie muessen fuer die Auswahl eine Zahl von 1 bis 3 angeben!\n\n";
-        
+        // std::cout << "              Sie muessen fuer die Auswahl eine Zahl von 1 bis 3 angeben!\n\n";
+        Auswahl(Auswahloption);  // Funktionsaufruf: Prüfen der Anwendereingabe auf Korrektheit.
     }
     return 0;
 }
-// Last Edit: 20240728, 04.29 am
 
 
