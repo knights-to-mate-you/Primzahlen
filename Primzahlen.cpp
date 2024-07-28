@@ -27,17 +27,12 @@ int Anzahl = 0;              // Numerische Variable für das Zählen aller gefun
 int Primzahlindikator = 0;   // Numerische Variable für Primzahlindikator
 float Verhaeltnis = 0.00000; // Dezimalvariable für das Verhältnis von Zahl zu Anzahl der Primzahlen
 
-static void Auswahl(int Auswahloption)
+static void Auswahl()
 {
-    while (Auswahloption < 1 or Auswahloption > 3)   // Prüfen der Anwendereingabe auf Korrektheit
-    {
-        std::cout << "                       Sie haben " << Auswahloption << " eingegeben.\n";
-        std::cout << "                       Die Auswahl muss jedoch ausschliesslich 1, 2 oder 3 sein! \n\n";
         std::cout << "                       (1) - Welche Zahl soll auf Prim geprueft werden ?\n";
         std::cout << "                       (2) - Bis zu welcher Zahl sollen Primzahlen angezeigt werden ?\n\n";
         std::cout << "                       (3) - Anzahl der Primzahlen in bestimmten Intervallen \n\n";
         std::cout << "                       Auswahl: "; std::cin >> Auswahloption; std::cout << "\n\n\n";
-    }
 }
 
 static void Pruefe_Zahl(int Zahl)
@@ -55,8 +50,8 @@ static void Pruefe_Zahl(int Zahl)
         std::cout << "Teilnehmersuchzahl: " << Teilersuchzahl << " \n";
         Teilersuchzahl = Teilersuchzahl + 1;
     }
-        std::cout << "                         " << Zahl << " ist eine Primzahl. \n";
     }
+    std::cout << "                      " << Zahl << " ist eine Primzahl. \n";
     
 }
 
@@ -101,31 +96,32 @@ int main()
     std::cout << "                       Primzahlen sind Zahlen, die nur durch Eins und sich selbst geteilt werden koennen.\n";
     std::cout << "                       Eins ist per Definition keine Primzahl. \n\n";
     std::cout << "                       ************************************ \n\n";
-    std::cout << "                       (1) - Welche Zahl soll auf Prim geprueft werden ?\n";
-    std::cout << "                       (2) - Bis zu welcher Zahl sollen Primzahlen angezeigt werden ?\n\n";
-    std::cout << "                       (3) - Anzahl der Primzahlen in bestimmten Intervallen \n\n";
-    std::cout << "                       Auswahl: "; std::cin >> Auswahloption; std::cout << "\n\n\n";
-
-    Auswahl(Auswahloption);  // Funktionsaufruf: Prüfen der Anwendereingabe auf Korrektheit.
+    std::cout << "                       \n\n\n";
+       
+   
+        Auswahl();  // Funktionsaufruf: Prüfen der Anwendereingabe auf Korrektheit.
+        switch (Auswahloption)
+        {
+        case 1:
+            Pruefe_Zahl(Zahl);   // Funktionsaufruf: Die vom Anwender eingegebene Zahl wird auf Prim geprüft.   
+            break;
+        case 2:
+            Anwendergrenze(Zahl);  // Funktionsaufruf: Prüfen der Zahlen auf Prim bis zu der vom Anwender gewünschten.
+            break;
+        case 3:
+            Intervall(Zahl); // Funktionsaufruf: Berechnung der Anzahl von Primzahlen in einem bestimmten Intervall.
+            break;
+        default:
+            std::cout << "              Sie haben " << Auswahloption << " angegeben. \n";
+            std::cout << "              Die Auswahl muss jedoch ausschliesslich 1, 2 oder 3 sein! \n\n";
+            Auswahl();  // Funktionsaufruf: Anwendereingabe (Auswahl)
+            break;
+        }
+   
     
-    switch (Auswahloption)
-    {
-    case 1:
-        Pruefe_Zahl(Zahl);   // Funktionsaufruf: Die vom Anwender eingegebene Zahl wird auf Prim geprüft.   
-        break;
-    case 2:
-        Anwendergrenze(Zahl);  // Funktionsaufruf: Prüfen der Zahlen auf Prim bis zu der vom Anwender gewünschten.
-        break;
-    case 3:
-        Intervall(Zahl); // Funktionsaufruf: Berechnung der Anzahl von Primzahlen in einem bestimmten Intervall.
-        break;
-    default:
-        // std::cout << "              Sie muessen fuer die Auswahl eine Zahl von 1 bis 3 angeben!\n\n";
-        Auswahl(Auswahloption);  // Funktionsaufruf: Prüfen der Anwendereingabe auf Korrektheit.
-    }
-    return 0;
+    // return 0;
 
-    // Last Edit: Sunday, 28th July 2024, 6.10 am GMT+1
+   
 }
 
 
