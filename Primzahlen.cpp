@@ -29,12 +29,13 @@ float Verhaeltnis = 0.00000; // Dezimalvariable für das Verhältnis von Zahl zu
 
 static void Auswahl(int Auswahloption)
 {
-    while (Auswahloption < 1 or Auswahloption > 2)   // Prüfen der Anwendereingabe auf Korrektheit
+    while (Auswahloption < 1 or Auswahloption > 3)   // Prüfen der Anwendereingabe auf Korrektheit
     {
         std::cout << "                       Sie haben " << Auswahloption << " eingegeben.\n";
-        std::cout << "                       Die Auswahl muss jedoch ausschliesslich 1 oder 2 sein! \n\n";
+        std::cout << "                       Die Auswahl muss jedoch ausschliesslich 1, 2 oder 3 sein! \n\n";
         std::cout << "                       (1) - Welche Zahl soll auf Prim geprueft werden ?\n";
         std::cout << "                       (2) - Bis zu welcher Zahl sollen Primzahlen angezeigt werden ?\n\n";
+        std::cout << "                       (3) - Anzahl der Primzahlen in bestimmten Intervallen \n\n";
         std::cout << "                       Auswahl: "; std::cin >> Auswahloption; std::cout << "\n\n\n";
     }
 }
@@ -89,6 +90,11 @@ static void Anwendergrenze(int Zahl)
     std::cout << "                         " << "Ein " << Verhaeltnis << ".tel der Zahlen von 2 bis " << Zahl << " sind also Primzahlen. " << "\n";
 }
 
+static void Intervall(int Zahl)
+{
+    std::cout << "                       Hier kommt der Intervall-Teil rein - in Bearbeitung ... \n\n";
+}
+
 int main()
 {
     std::cout << "                       ******** Primzahlenprogramm ******** \n\n";
@@ -97,20 +103,28 @@ int main()
     std::cout << "                       ************************************ \n\n";
     std::cout << "                       (1) - Welche Zahl soll auf Prim geprueft werden ?\n";
     std::cout << "                       (2) - Bis zu welcher Zahl sollen Primzahlen angezeigt werden ?\n\n";
+    std::cout << "                       (3) - Anzahl der Primzahlen in bestimmten Intervallen \n\n";
     std::cout << "                       Auswahl: "; std::cin >> Auswahloption; std::cout << "\n\n\n";
 
-    Auswahl(Auswahloption);  // Funktionsaufruf: Prüfen der Anwendereingabe auf Korrektheit.
+   // Auswahl(Auswahloption);  // Funktionsaufruf: Prüfen der Anwendereingabe auf Korrektheit.
     
-
-    if (Auswahloption == 1)
+    switch (Auswahloption)
     {
-        Pruefe_Zahl(Zahl);   // Funktionsaufruf: Die vom Anwender eingegebene Zahl wird auf Prim geprüft.       
-    }
-    else // Wenn also die Auswahl = 2 ist, dann: ... sollen alle Zahlen von 2 bis zur vom Anwender eingegebenen auf Prim geprüft werden.
-    {
+    case 1:
+        Pruefe_Zahl(Zahl);   // Funktionsaufruf: Die vom Anwender eingegebene Zahl wird auf Prim geprüft.   
+        break;
+    case 2:
         Anwendergrenze(Zahl);  // Funktionsaufruf: Prüfen der Zahlen auf Prim bis zu der vom Anwender gewünschten.
-               
+        break;
+    case 3:
+        Intervall(Zahl); // Funktionsaufruf: Berechnung der Anzahl von Primzahlen in einem bestimmten Intervall.
+        break;
+    default:
+        std::cout << "              Sie muessen fuer die Auswahl eine Zahl von 1 bis 3 angeben!\n\n";
+        
     }
+    return 0;
 }
+// Last Edit: 20240728, 04.29 am
 
 
